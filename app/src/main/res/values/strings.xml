@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="car1">Car1</string>
+    <string name="car2">Car2</string>
+    <string name="car3">Car3</string>
+    <string name="car_number">empty</string>
+    <string name="car_brand">empty</string>
+    <string name="car_name">empty</string>
+    <string name="update_button">Update</string>
+    <string name="delete_button">Delete</string>
+    <string name="number_text"/>
+    <string name="brand_text"/>
+    <string name="name_text"/>
+
+</resources>
