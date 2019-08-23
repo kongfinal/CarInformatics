@@ -11,32 +11,20 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    var Car = 0
-    var numberCar1:String = ""
-    var numberCar2 = ""
-    var numberCar3 = ""
-    var brandCar1 = ""
-    var brandCar2 = ""
-    var brandCar3 = ""
-    var nameCar1 = ""
-    var nameCar2 = ""
-    var nameCar3 = ""
+    private lateinit var Car: Integer
+    private lateinit var numberCar1: String
+    private lateinit var numberCar2: String
+    private lateinit var numberCar3: String
+    private lateinit var brandCar1 : String
+    private lateinit var brandCar2: String
+    private lateinit var brandCar3: String
+    private lateinit var nameCar1: String
+    private lateinit var nameCar2: String
+    private lateinit var nameCar3: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<Button>(R.id.car1_button).setOnClickListener {
-            clickCar1(it)
-        }
-        findViewById<Button>(R.id.car2_button).setOnClickListener {
-            clickCar2(it)
-        }
-        findViewById<Button>(R.id.car3_button).setOnClickListener {
-            clickCar3(it)
-        }
-        findViewById<Button>(R.id.update_button).setOnClickListener {
-            addCar(it)
-        }
         findViewById<TextView>(R.id.number_text).setOnClickListener {
             updateNumber(it)
         }
@@ -46,21 +34,35 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.name_text).setOnClickListener {
             updateName(it)
         }
+        findViewById<Button>(R.id.update_button).setOnClickListener {
+            addCar(it)
+        }
+        findViewById<Button>(R.id.delete_button).setOnClickListener {
+            deleteCar(it)
+        }
     }
 
     private fun clickCar1(view: View) {
-        Car = 1
+        //Car = 1
         val numberTextView = findViewById<TextView>(R.id.number_text)
         val brandTextView = findViewById<TextView>(R.id.brand_text)
         val nameTextView = findViewById<TextView>(R.id.name_text)
 
+        val numberEditText = findViewById<EditText>(R.id.number_edit)
+        val brandEditText = findViewById<EditText>(R.id.brand_edit)
+        val nameEditText = findViewById<EditText>(R.id.name_edit)
+
         numberTextView.text = numberCar1
         brandTextView.text = brandCar1
         nameTextView.text = nameCar1
+
+        numberTextView.visibility = View.VISIBLE
+        brandTextView.visibility = View.VISIBLE
+        nameTextView.visibility = View.VISIBLE
     }
 
     private fun clickCar2(view: View) {
-        Car = 2
+        //Car = 2
         val numberTextView = findViewById<TextView>(R.id.number_text)
         val brandTextView = findViewById<TextView>(R.id.brand_text)
         val nameTextView = findViewById<TextView>(R.id.name_text)
@@ -68,10 +70,15 @@ class MainActivity : AppCompatActivity() {
         numberTextView.text = numberCar2
         brandTextView.text = brandCar2
         nameTextView.text = nameCar2
+
+        numberTextView.visibility = View.VISIBLE
+        brandTextView.visibility = View.VISIBLE
+        nameTextView.visibility = View.VISIBLE
     }
 
+
     private fun clickCar3(view: View) {
-        Car = 3
+        //Car = 3
         val numberTextView = findViewById<TextView>(R.id.number_text)
         val brandTextView = findViewById<TextView>(R.id.brand_text)
         val nameTextView = findViewById<TextView>(R.id.name_text)
@@ -79,6 +86,10 @@ class MainActivity : AppCompatActivity() {
         numberTextView.text = numberCar3
         brandTextView.text = brandCar3
         nameTextView.text = nameCar3
+
+        numberTextView.visibility = View.VISIBLE
+        brandTextView.visibility = View.VISIBLE
+        nameTextView.visibility = View.VISIBLE
     }
 
     private fun addCar(view: View) {
@@ -101,23 +112,16 @@ class MainActivity : AppCompatActivity() {
         nameEditText.visibility = View.GONE
         nameTextView.visibility = View.VISIBLE
 
-        if(Car == 1){
-            numberCar1 = numberEditText.text.toString()
-            brandCar1 =  brandEditText.text.toString()
-            nameCar1 = nameEditText.text.toString()
-        }else if(Car == 2){
-            numberCar2 = numberEditText.text.toString()
-            brandCar2 =  brandEditText.text.toString()
-            nameCar2 = nameEditText.text.toString()
-        }else{
-            numberCar3 = numberEditText.text.toString()
-            brandCar3 =  brandEditText.text.toString()
-            nameCar3 = nameEditText.text.toString()
-        }
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(brandEditText, 0)
     }
 
     private fun updateNumber (view: View) {
         val numberEditText = findViewById<EditText>(R.id.number_edit)
+        val numberTextView = findViewById<TextView>(R.id.number_text)
+
+        //numberEditText.text =
+        numberTextView.visibility = View.GONE
         numberEditText.visibility = View.VISIBLE
         numberEditText.requestFocus()
 
@@ -127,6 +131,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateBrand (view: View) {
         val brandEditText = findViewById<EditText>(R.id.brand_edit)
+        val brandTextView = findViewById<TextView>(R.id.brand_text)
+
+        brandTextView.visibility = View.GONE
         brandEditText.visibility = View.VISIBLE
         brandEditText.requestFocus()
 
@@ -136,6 +143,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateName (view: View) {
         val nameEditText = findViewById<EditText>(R.id.name_edit)
+        val nameTextView = findViewById<TextView>(R.id.name_text)
+
+        nameTextView.visibility = View.GONE
         nameEditText.visibility = View.VISIBLE
         nameEditText.requestFocus()
 
@@ -159,18 +169,6 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = ""
         nameTextView.text = ""
 
-        if(Car == 1){
-            numberCar1 = ""
-            brandCar1 =  ""
-            nameCar1 = ""
-        }else if(Car == 2){
-            numberCar2 = ""
-            brandCar2 =  ""
-            nameCar2 = ""
-        }else{
-            numberCar3 = ""
-            brandCar3 =  ""
-            nameCar3 = ""
-        }
+
     }
 }
