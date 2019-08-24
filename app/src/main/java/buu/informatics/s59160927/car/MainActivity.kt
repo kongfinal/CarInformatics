@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         val brandEditText = findViewById<EditText>(R.id.brand_edit)
         val nameEditText = findViewById<EditText>(R.id.name_edit)
 
+        val numberTextView = findViewById<TextView>(R.id.number_text)
+        val brandTextView = findViewById<TextView>(R.id.brand_text)
+        val nameTextView = findViewById<TextView>(R.id.name_text)
+
+        numberTextView.setBackgroundResource(R.color.colorCar1)
+        brandTextView.setBackgroundResource(R.color.colorCar1)
+        nameTextView.setBackgroundResource(R.color.colorCar1)
+
         numberEditText.visibility = View.GONE
         brandEditText.visibility = View.GONE
         nameEditText.visibility = View.GONE
@@ -173,8 +181,11 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar1
         nameTextView.text = nameCar1
 
-        setTextViewVisibilityVISIBLE()
+        numberTextView.setBackgroundResource(R.color.colorCar1)
+        brandTextView.setBackgroundResource(R.color.colorCar1)
+        nameTextView.setBackgroundResource(R.color.colorCar1)
 
+        setTextViewVisibilityVISIBLE()
         setEmptyCar1()
     }
 
@@ -188,8 +199,11 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar2
         nameTextView.text = nameCar2
 
-        setTextViewVisibilityVISIBLE()
+        numberTextView.setBackgroundResource(R.color.colorCar2)
+        brandTextView.setBackgroundResource(R.color.colorCar2)
+        nameTextView.setBackgroundResource(R.color.colorCar2)
 
+        setTextViewVisibilityVISIBLE()
         setEmptyCar2()
     }
 
@@ -204,8 +218,11 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar3
         nameTextView.text = nameCar3
 
-        setTextViewVisibilityVISIBLE()
+        numberTextView.setBackgroundResource(R.color.colorCar3)
+        brandTextView.setBackgroundResource(R.color.colorCar3)
+        nameTextView.setBackgroundResource(R.color.colorCar3)
 
+        setTextViewVisibilityVISIBLE()
         setEmptyCar3()
     }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Car Park App</string>
     <string name="car1">Car1</string>
     <string name="car2">Car2</string>
     <string name="car3">Car3</string>
