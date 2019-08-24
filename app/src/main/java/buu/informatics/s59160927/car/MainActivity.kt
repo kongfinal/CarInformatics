@@ -58,7 +58,8 @@ class MainActivity : AppCompatActivity() {
             deleteCar(it)
         }
     }
-    private fun setEmptyCar1() {
+
+    private fun setEditTextVisibilityGONE() {
         val numberEditText = findViewById<EditText>(R.id.number_edit)
         val brandEditText = findViewById<EditText>(R.id.brand_edit)
         val nameEditText = findViewById<EditText>(R.id.name_edit)
@@ -66,6 +67,25 @@ class MainActivity : AppCompatActivity() {
         numberEditText.visibility = View.GONE
         brandEditText.visibility = View.GONE
         nameEditText.visibility = View.GONE
+    }
+
+    private fun setTextViewVisibilityVISIBLE() {
+        val numberTextView = findViewById<TextView>(R.id.number_text)
+        val brandTextView = findViewById<TextView>(R.id.brand_text)
+        val nameTextView = findViewById<TextView>(R.id.name_text)
+
+        numberTextView.visibility = View.VISIBLE
+        brandTextView.visibility = View.VISIBLE
+        nameTextView.visibility = View.VISIBLE
+    }
+
+
+    private fun setEmptyCar1() {
+        val numberEditText = findViewById<EditText>(R.id.number_edit)
+        val brandEditText = findViewById<EditText>(R.id.brand_edit)
+        val nameEditText = findViewById<EditText>(R.id.name_edit)
+
+        setEditTextVisibilityGONE()
 
         if(numberCar1.equals("empty")){
             numberEditText.setText("")
@@ -85,10 +105,6 @@ class MainActivity : AppCompatActivity() {
             nameEditText.setText(nameCar1)
         }
 
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(numberEditText, 0)
-        imm.showSoftInput(brandEditText, 0)
-        imm.showSoftInput(nameEditText, 0)
     }
 
     private fun setEmptyCar2() {
@@ -96,9 +112,7 @@ class MainActivity : AppCompatActivity() {
         val brandEditText = findViewById<EditText>(R.id.brand_edit)
         val nameEditText = findViewById<EditText>(R.id.name_edit)
 
-        numberEditText.visibility = View.GONE
-        brandEditText.visibility = View.GONE
-        nameEditText.visibility = View.GONE
+        setEditTextVisibilityGONE()
 
         if(numberCar2.equals("empty")){
             numberEditText.setText("")
@@ -118,10 +132,6 @@ class MainActivity : AppCompatActivity() {
             nameEditText.setText(nameCar2)
         }
 
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(numberEditText, 0)
-        imm.showSoftInput(brandEditText, 0)
-        imm.showSoftInput(nameEditText, 0)
     }
 
     private fun setEmptyCar3() {
@@ -129,9 +139,7 @@ class MainActivity : AppCompatActivity() {
         val brandEditText = findViewById<EditText>(R.id.brand_edit)
         val nameEditText = findViewById<EditText>(R.id.name_edit)
 
-        numberEditText.visibility = View.GONE
-        brandEditText.visibility = View.GONE
-        nameEditText.visibility = View.GONE
+        setEditTextVisibilityGONE()
 
         if(numberCar3.equals("empty")){
             numberEditText.setText("")
@@ -151,11 +159,9 @@ class MainActivity : AppCompatActivity() {
             nameEditText.setText(nameCar3)
         }
 
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(numberEditText, 0)
-        imm.showSoftInput(brandEditText, 0)
-        imm.showSoftInput(nameEditText, 0)
     }
+
+
 
     private fun clickCar1(view: View) {
         Car = 1
@@ -167,9 +173,7 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar1
         nameTextView.text = nameCar1
 
-        numberTextView.visibility = View.VISIBLE
-        brandTextView.visibility = View.VISIBLE
-        nameTextView.visibility = View.VISIBLE
+        setTextViewVisibilityVISIBLE()
 
         setEmptyCar1()
     }
@@ -184,9 +188,7 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar2
         nameTextView.text = nameCar2
 
-        numberTextView.visibility = View.VISIBLE
-        brandTextView.visibility = View.VISIBLE
-        nameTextView.visibility = View.VISIBLE
+        setTextViewVisibilityVISIBLE()
 
         setEmptyCar2()
     }
@@ -202,12 +204,12 @@ class MainActivity : AppCompatActivity() {
         brandTextView.text = brandCar3
         nameTextView.text = nameCar3
 
-        numberTextView.visibility = View.VISIBLE
-        brandTextView.visibility = View.VISIBLE
-        nameTextView.visibility = View.VISIBLE
+        setTextViewVisibilityVISIBLE()
 
         setEmptyCar3()
     }
+
+
 
     private fun addCar(view: View) {
         val numberEditText = findViewById<EditText>(R.id.number_edit)
@@ -217,14 +219,9 @@ class MainActivity : AppCompatActivity() {
         val nameEditText = findViewById<EditText>(R.id.name_edit)
         val nameTextView = findViewById<TextView>(R.id.name_text)
 
-        numberEditText.visibility = View.GONE
-        numberTextView.visibility = View.VISIBLE
+        setTextViewVisibilityVISIBLE()
 
-        brandEditText.visibility = View.GONE
-        brandTextView.visibility = View.VISIBLE
-
-        nameEditText.visibility = View.GONE
-        nameTextView.visibility = View.VISIBLE
+        setEditTextVisibilityGONE()
 
         if(numberEditText.text.toString().equals("")){
             numberTextView.text = "empty"
@@ -257,11 +254,6 @@ class MainActivity : AppCompatActivity() {
             brandCar3 =  brandTextView.text.toString()
             nameCar3 = nameTextView.text.toString()
         }
-
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(numberEditText, 0)
-        imm.showSoftInput(brandEditText, 0)
-        imm.showSoftInput(nameEditText, 0)
     }
 
     private fun updateNumber (view: View) {
@@ -309,13 +301,9 @@ class MainActivity : AppCompatActivity() {
         val nameEditText = findViewById<EditText>(R.id.name_edit)
         val nameTextView = findViewById<TextView>(R.id.name_text)
 
-        numberEditText.visibility = View.GONE
-        brandEditText.visibility = View.GONE
-        nameEditText.visibility = View.GONE
+        setEditTextVisibilityGONE()
 
-        numberTextView.visibility = View.VISIBLE
-        brandTextView.visibility = View.VISIBLE
-        nameTextView.visibility = View.VISIBLE
+        setTextViewVisibilityVISIBLE()
 
         numberTextView.setText("empty")
         brandTextView.setText("empty")
